@@ -1,0 +1,7 @@
+# 담당 ④: 앱 전체 테마 (색·폰트). 자유롭게 바꿔보세요.
+[theme]
+primaryColor = "#7C6FF0"
+backgroundColor = "#FAFAFC"
+secondaryBackgroundColor = "#F0EEF9"
+textColor = "#1F1B2E"
+font = "sans serif"
