@@ -17,3 +17,16 @@
 ---
 
 (여기서부터 팀원별로 이어서 작성)
+
+
+- **날짜:** 2026-06-08
+- **담당:** 이찬영
+- **목적:** 대시보드 요약 카드 추가 및 페이지 파일 포함
+- **프롬프트:**
+[맥락] Streamlit 감정 일기 앱의 대시보드를 만들고 있어. src/charts.py 에는
+이미 emotions_over_time(entries), keyword_counts(entries) 함수가 있어.
+entries 는 [{"date":"2026-06-01 21:10","text":..., "analysis":{"emotions":[{"label":"피곤함","intensity":4}],"keywords":[...]}}] 형태야.
+[목표] 최근 7일 기록을 요약하는 함수를 추가하고 싶어.
+[입력→출력] entries 리스트를 받아 {"count": 기록수, "top_emotion": 가장 많이 나온 감정, "avg_intensity": 평균 강도(소수1자리)} dict 를 반환해줘.
+[제약] 추가 라이브러리 없이 표준 라이브러리(datetime, collections)만 써줘.
+[추가] 초급자가 이해하게 주석 달고, 동작 방식도 설명해줘.
