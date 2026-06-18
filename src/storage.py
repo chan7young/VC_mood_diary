@@ -4,14 +4,19 @@ import os
 from datetime import datetime
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "entries.json")
+SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "sample_entries.json")
 
 
 def load_entries():
-    """저장된 일기 목록을 불러온다. 없으면 빈 리스트."""
-    if not os.path.exists(DATA_PATH):
+    """저장된 일기 목록을 불러온다.
+
+    아직 저장된 일기가 없으면 샘플 데이터를 보여주고, 그것도 없으면 빈 리스트.
+    """
+    path = DATA_PATH if os.path.exists(DATA_PATH) else SAMPLE_PATH
+    if not os.path.exists(path):
         return []
     try:
-        with open(DATA_PATH, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, OSError):
         return []

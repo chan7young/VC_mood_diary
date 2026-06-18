@@ -3,6 +3,11 @@
 import os
 import json
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Streamlit 멀티페이지에서는 페이지로 이동하면 app.py가 실행되지 않으므로
+# (app.py 의 load_dotenv 가 호출되지 않음) 여기서 직접 .env 를 로드한다.
+load_dotenv()
 
 # ----------------------------
 # 위기 키워드
@@ -45,6 +50,7 @@ def detect_crisis(text: str) -> bool:
 def _mock_analysis(text: str):
     return {
         "crisis": False,
+        "mock": True,  # API 키가 없거나 호출 실패 시 사용된 고정 결과임을 표시
         "emotions": [
             {
                 "label": "차분함",
@@ -113,7 +119,15 @@ def analyze_entry(text: str):
 
         response = model.generate_content(prompt)
 
-        result = json.loads(response.text)
+        # 응답이 ```json ... ``` 마크다운으로 감싸져 오는 경우 제거
+        raw = response.text.strip()
+        if raw.startswith("```"):
+            raw = raw.strip("`")
+            if raw.startswith("json"):
+                raw = raw[len("json"):]
+            raw = raw.strip()
+
+        result = json.loads(raw)
 
         result["crisis"] = False
 
@@ -122,4 +136,4 @@ def analyze_entry(text: str):
     except Exception as e:
         print("분석 오류:", e)
 
-        return _mock_analysis(text)git
+        return _mock_analysis(text)
