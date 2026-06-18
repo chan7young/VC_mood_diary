@@ -31,10 +31,10 @@
 
 | 팀원 | 역할 | 담당 파일 | 기여도 |
 |---|---|---|---|
-| 이름1 | 일기 작성·저장 + 홈 | `app.py`, `pages/1_일기쓰기.py`, `src/storage.py` | __% |
-| 이름2 | LLM 감정·키워드 분석 + 위기 안전장치 | `src/analysis.py` | __% |
-| 이름3 | 추이 차트·대시보드 | `pages/2_감정대시보드.py`, `src/charts.py` | __% |
-| 이름4 | UI 테마·안내 문구·통합·배포 | `.streamlit/config.toml`, `README.md` | __% |
+| 김지민 | 일기 작성·저장 | `pages/1_일기쓰기.py`, `src/storage.py` 
+| 이예림 | LLM 감정·키워드 분석 + 위기 안전장치 | `src/analysis.py` 
+| 이찬영 | 추이 차트·대시보드 | `pages/2_감정대시보드.py`, `src/charts.py` 
+| 민지우 | UI 테마·안내 문구·통합·배포  + 홈 |  `app.py`, `.streamlit/config.toml`, `README.md` 
 
 ---
 
